@@ -17,7 +17,7 @@ public class MainApp extends Application{
         app = this;
     }
 
-    protected static Application getMyApplication(){
+    public static Application getMyApplication(){
         return app;
     }
 }

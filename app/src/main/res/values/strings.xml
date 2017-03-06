@@ -1,5 +1,31 @@
 <resources>
     <string name="app_name">BargunSettingDemo</string>
+
+    <!--设置界面-->
+    <string name="second">秒</string>
+    <string name="tips_time">时间：</string>
+    <string name="auto_lock_keyboard_setting">设置自动锁屏待机的时间间隔</string>
+    <string name="dialog_positive">确定</string>
+    <string name="dialog_negative">取消</string>
+    <string name="setting_btn_back">返回</string>
+    <string name="auto_lock_keyboard">自动锁屏时间设置</string>
+    <string name="sound_setting">声音设置</string>
+    <string name="backlight_setting">背光设置</string>
+    <string name="memory_hint">条记录,请适时删除数据</string>
+    <string name="current_surplus">当前剩余空间:</string>
+    <string name="megabytes_about">MB/约</string>
+    <string name="change_backlight">调节屏幕亮度</string>
+    <string name="scan_mode">扫描头触发控制</string>
+    <string name="scan_mode_auto">自动</string>
+    <string name="scan_mode_manual">手动</string>
+    <string name="settings_title">巴枪设置</string>
+
+
+
+
+
+
+
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->

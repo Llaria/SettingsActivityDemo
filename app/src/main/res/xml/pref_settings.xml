@@ -25,12 +25,12 @@
             android:summary="设置自动锁屏时间"
             />
 
-        <com.kaicom.chuangxinapp.ui.activity.settings.AutoUploadPreference
+       <!-- <com.kaicom.chuangxinapp.ui.activity.settings.AutoUploadPreference
             android:title="自动上传时间"
             android:key="autoupload"
             android:icon="@mipmap/update"
             android:summary="设置自动上传时间"
-            />
+            />-->
 
         <Preference
             android:icon="@mipmap/address"
