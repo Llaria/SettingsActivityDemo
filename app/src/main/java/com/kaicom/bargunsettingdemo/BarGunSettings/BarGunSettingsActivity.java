@@ -18,13 +18,18 @@ import com.kaicom.bargunsettingdemo.R;
 import java.util.regex.Pattern;
 
 import static android.text.TextUtils.isEmpty;
+import static com.kaicom.bargunsettingdemo.MainApp.app;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * @author Sundy
+ * create at 2017/3/6 9:41
+ */
+public class BarGunSettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_bar_gun_settings);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_setting_contain,new SettingsFragment()).commit();
     }
 
@@ -38,11 +43,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.pref_settings);
-            initSwitchPreference();
+            initNetwork();
             initUpgrade();
         }
 
-        private void initSwitchPreference() {
+        // 无线网络设置
+        private void initNetwork() {
             switchPreference = (SwitchPreferenceCompat) findPreference(SWITCH_KEY);
             switchPreference.setChecked(isWifi());
             switchPreference.setOnPreferenceChangeListener(new android.support.v7.preference.Preference.OnPreferenceChangeListener() {
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+        // 升级设置
         private void initUpgrade() {
             upgradePreference = findPreference(UPGRADE_KEY);
             upgradePreference.setOnPreferenceClickListener(new android.support.v7.preference.Preference.OnPreferenceClickListener() {
@@ -90,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
      * 判断Wifi是否开启
      */
     public static boolean isWifi() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) MainApp.getMyApplication().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) MainApp.app.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager == null)
             return false;
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
@@ -101,14 +108,20 @@ public class MainActivity extends AppCompatActivity {
      * 设置wifi开启还是关闭
      */
     public static void setWifiEnable(boolean enable) {
-        WifiManager wifiManager = (WifiManager)MainApp.getMyApplication().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) app.getSystemService(Context.WIFI_SERVICE);
         wifiManager.setWifiEnabled(enable);
     }
 
+    /**
+     * 消息提示
+     */
     public static void showToast(String content) {
-        Toast.makeText(MainApp.getMyApplication(), content, Toast.LENGTH_SHORT).show();
+        Toast.makeText(app, content, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * 是否数字
+     */
     public static boolean isNumeric(String str) {
         if (isEmpty(str))
             return false;
@@ -116,12 +129,15 @@ public class MainActivity extends AppCompatActivity {
         return pattern.matcher(str).matches();
     }
 
+    /**
+     * 获取版本号
+     */
     public static String getVersionName() {
         String version = "";
         try {
-            PackageManager packageManager = MainApp.getMyApplication().getPackageManager();
+            PackageManager packageManager = app.getPackageManager();
             PackageInfo packInfo;
-            packInfo = packageManager.getPackageInfo(MainApp.getMyApplication().getPackageName(), 0);
+            packInfo = packageManager.getPackageInfo(app.getPackageName(), 0);
             version = packInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

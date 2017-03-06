@@ -25,7 +25,7 @@ public class VersionSettingPreference extends Preference implements Preference.O
     public boolean onPreferenceClick(Preference preference) {
         new AlertDialog.Builder(context)
                 .setTitle("版本信息")
-                .setMessage("软件版本："+ MainActivity.getVersionName())
+                .setMessage("软件版本："+ BarGunSettingsActivity.getVersionName())
                 .setPositiveButton("确认", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

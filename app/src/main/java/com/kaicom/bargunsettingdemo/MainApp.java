@@ -9,12 +9,16 @@ import android.app.Application;
 
 public class MainApp extends Application{
 
-    private static MainApp app;
+    public static MainApp app;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        app = this;
+        initApplication(this);
+    }
+
+    private static void initApplication(MainApp mainApp) {
+        app = mainApp;
     }
 
     public static Application getMyApplication(){

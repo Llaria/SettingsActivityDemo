@@ -4,45 +4,44 @@
 
     <android.support.v7.preference.PreferenceCategory
         android:title="巴枪设置">
-        <com.kaicom.chuangxinapp.ui.activity.settings.SoundSettingPreference
+
+        <com.kaicom.bargunsettingdemo.BarGunSettings.SoundSettingPreference
             android:key="sound"
             android:title="声音"
             android:icon="@mipmap/shengyin"
             android:summary="调节巴枪声音"
            />
 
-        <com.kaicom.chuangxinapp.ui.activity.settings.BackLightSettingPreference
+        <com.kaicom.bargunsettingdemo.BarGunSettings.BackLightSettingPreference
             android:key="backlight"
             android:title="背光"
             android:icon="@mipmap/beiguang"
             android:summary="调节巴枪背光"
             />
 
-        <com.kaicom.chuangxinapp.ui.activity.settings.AutoLockSettingPreference
+        <com.kaicom.bargunsettingdemo.BarGunSettings.AutoLockSettingPreference
             android:title="自动锁屏设置"
             android:key="autolock"
             android:icon="@mipmap/suoping"
             android:summary="设置自动锁屏时间"
             />
 
-       <!-- <com.kaicom.chuangxinapp.ui.activity.settings.AutoUploadPreference
+
+        <com.kaicom.bargunsettingdemo.BarGunSettings.AutoUploadPreference
             android:title="自动上传时间"
             android:key="autoupload"
             android:icon="@mipmap/update"
             android:summary="设置自动上传时间"
-            />-->
+            />
 
         <Preference
             android:icon="@mipmap/address"
             android:title="接口地址"
             android:summary="设置接口地址"  >
-            <intent
-                android:targetPackage="com.kaicom.chuangxinapp"
-                android:targetClass="com.kaicom.chuangxinapp.ui.activity.settings.ServiceAddressActivity"
-                 />
+
         </Preference>
 
-        <com.kaicom.chuangxinapp.ui.activity.settings.NetworkSettingPreference
+        <com.kaicom.bargunsettingdemo.BarGunSettings.NetworkSettingPreference
             android:key="network"
             android:title="无线网络"
             android:summary="打开/关闭Wifi"
@@ -54,13 +53,13 @@
     <android.support.v7.preference.PreferenceCategory
         android:title="巴枪信息">
 
-        <com.kaicom.chuangxinapp.ui.activity.settings.StorageSettingPreference
+        <com.kaicom.bargunsettingdemo.BarGunSettings.StorageSettingPreference
             android:icon="@mipmap/sycc"
             android:title="剩余存储"
             android:summary="检查剩余存储空间"
             />
 
-        <com.kaicom.chuangxinapp.ui.activity.settings.VersionSettingPreference
+        <com.kaicom.bargunsettingdemo.BarGunSettings.VersionSettingPreference
             android:icon="@mipmap/ruanjianxinxi"
             android:title="版本信息"
             android:summary="检查当前软件版本"
@@ -78,7 +77,7 @@
     <android.support.v7.preference.PreferenceCategory
         android:title="巴枪升级">
 
-        <com.kaicom.chuangxinapp.ui.activity.settings.UpdateSettingPreference
+        <android.support.v7.preference.PreferenceScreen
             android:key="upgrade"
             android:icon="@mipmap/shengji"
             android:title="检查更新"

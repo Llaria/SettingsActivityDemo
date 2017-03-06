@@ -36,8 +36,7 @@ public class SoundSettingPreference extends Preference implements Preference.OnP
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         @SuppressLint("InflateParams") View layout = inflater.inflate(R.layout.preference_sound_setting, null);
         Button btn_minus = (Button) layout.findViewById(R.id.btn_setting_minus);
         Button btn_plus = (Button) layout.findViewById(R.id.btn_setting_plus);

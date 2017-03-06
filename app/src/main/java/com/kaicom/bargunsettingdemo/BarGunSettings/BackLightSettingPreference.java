@@ -34,17 +34,11 @@ public class BackLightSettingPreference extends Preference implements Preference
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         @SuppressLint("InflateParams") View layout = inflater.inflate(R.layout.preference_backlight_setting, null);
         seekBar = (SeekBar) layout.findViewById(R.id.back_light_seek_bar);
-
-        // 进度条绑定最大亮度，255是最大亮度
         seekBar.setMax(255);
-        // 取得当前亮度
-        int normal = Settings.System.getInt(context.getContentResolver(),
-                Settings.System.SCREEN_BRIGHTNESS, 255);
-        // 进度条绑定当前亮度
+        int normal = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 255);
         seekBar.setProgress(normal);
 
         new AlertDialog.Builder(context)
@@ -85,14 +79,14 @@ public class BackLightSettingPreference extends Preference implements Preference
         return false;
     }
 
+    /**
+     * 设置亮度
+     */
     private void setScreenLight() {
-        // 取得当前进度
         int tmpInt = seekBar.getProgress();
-        // 当进度小于30时，设置成30，防止太黑看不见的后果。
         if (tmpInt < 30) {
             tmpInt = 30;
         }
-        // 根据当前进度改变亮度
         Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, tmpInt);
     }
 }
